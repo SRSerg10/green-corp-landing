@@ -2,6 +2,7 @@ body {
   font-family:'Raleway', sans-serif;
   color:#213053;
   margin: 0;
+  overflow-x: hidden;
 }
 
 header {
@@ -9,6 +10,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  position: sticky;
+  background: #fff;
+  top: 0;
+  z-index: 1;
 }
 
 .header__logo {
@@ -48,9 +53,24 @@ button:hover {
   width: 500px;
 }
 
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+ }
+to {
+    transform: rotate(360deg);
+ }
+}
+
 .about__sun-image {
   width: 100px;
   height: 100px;
+  animation-name: rotation;
+  transform: rotate(90deg);
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  position: absolute;
 }
 
 .about { 
@@ -87,6 +107,15 @@ button:hover {
 
 .about__info {
   max-width: 550px;
+  opacity: 0;
+  animation: fadeInLeft 2s forwards;
+  animation-iteration-count: 1;
+}
+
+.about__images {
+  opacity: 0;
+  animation: fadeInLeft 2s forwards;
+  animation-iteration-count: 1;
 }
 
 .form__container {
@@ -206,4 +235,82 @@ footer {
 
 .footer__group h3 {
   margin-bottom: 30px;
+}
+
+@media (max-width: 720px) {
+  body {
+    overflow-x: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .header__logo {
+    height: 20px;
+    position: sticky;
+    background: #fff;
+    top: 0;
+    z-index: 1;
+  }
+  section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .about {
+    overflow: hidden;
+  }
+  .about h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .about__image {
+    width:100%;
+    overflow: hidden;
+  }
+  .about__sun-image {
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+  }
+  .about__info {
+    width: 100%;
+  }
+  .footer__group {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .form {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 1024px) {
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-x: hidden;
+  }
+  .about {
+    overflow: hidden;
+  }
+  .about h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .about__image {
+    width: 280px;
+  }
+  .about__sun-image {
+    width: 75px;
+    height: 75px;
+  }
+  .footer__group {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+.fa-angle-right {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 20px;
 }
